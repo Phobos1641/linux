@@ -3741,7 +3741,7 @@ static struct md_rdev *md_import_device(dev_t newdev, int super_format, int supe
 	if (err)
 		goto abort_free;
 
-	err = lock_rdev(rdev, newdev, super_format == -2);
+	err = lock_rdev(rdev, newdev, super_format == -2, NULL);
 	if (err)
 		goto abort_free;
 

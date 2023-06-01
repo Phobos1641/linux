@@ -50,6 +50,8 @@ struct block_device {
 	void *			bd_claiming;
 	struct device		bd_device;
 	void *			bd_holder;
+	const struct blk_holder_ops *bd_holder_ops;
+	struct mutex		bd_holder_lock;
 	int			bd_holders;
 	bool			bd_write_holder;
 	struct kobject		*bd_holder_dir;

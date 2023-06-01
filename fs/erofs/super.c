@@ -206,7 +206,7 @@ static int erofs_init_device(struct erofs_buf *buf, struct super_block *sb,
 		dif->fscache = fscache;
 	} else {
 		bdev = blkdev_get_by_path(dif->path, FMODE_READ | FMODE_EXCL,
-					  sb->s_type);
+					  sb->s_type, NULL);
 		if (IS_ERR(bdev))
 			return PTR_ERR(bdev);
 		dif->bdev = bdev;
