@@ -4976,11 +4976,37 @@ num_entries(int infotype, char *bufstart, char *end_of_buf, char **lastentry,
 		else
 			len = le32_to_cpu(dir_info->FileNameLength);
 
-		if (len < 0 ||
-		    entryptr + len < entryptr ||
-		    entryptr + len > end_of_buf ||
-		    entryptr + len + size > end_of_buf) {
-			cifs_dbg(VFS, "directory entry name would overflow frame end of buf %p\n",
+		if (unlikely(len < 0)) {
+			cifs_dbg(VFS, "directory entry name would overflow frame end of buf %p, len %i\n",
+				 end_of_buf,
+				 len);
+			break;
+		}
+
+		if (unlikely(entryptr + len < entryptr)) {
+			cifs_dbg(VFS, "directory entry name would overflow frame end of buf %p, %p + %i < %p\n",
+				 end_of_buf,
+				 entryptr,
+				 len,
+				 entryptr);
+			break;
+		}
+
+		if (unlikely(entryptr + len > end_of_buf)) {
+			cifs_dbg(VFS, "directory entry name would overflow frame end of buf %p, %p + %i > %p\n",
+				 end_of_buf,
+				 entryptr,
+				 len,
+				 end_of_buf);
+			break;
+		}
+
+		if (entryptr + len + size > end_of_buf) {
+			cifs_dbg(VFS, "directory entry name would overflow frame end of buf %p, %p + %i + %zi > %p\n",
+				 end_of_buf,
+				 entryptr,
+				 len,
+				 size,
 				 end_of_buf);
 			break;
 		}
