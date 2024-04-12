@@ -53,10 +53,10 @@ struct block_device {
 	const struct blk_holder_ops *bd_holder_ops;
 	struct mutex		bd_holder_lock;
 	int			bd_holders;
-	bool			bd_write_holder;
 	struct kobject		*bd_holder_dir;
 	atomic_t		__bd_flags;	// partition number + flags
 #define BD_PARTNO		255	// lower 8 bits; assign-once
+#define BD_WRITE_HOLDER		(1u<<9)
 	spinlock_t		bd_size_lock; /* for bd_inode->i_size updates */
 	struct gendisk *	bd_disk;
 	struct request_queue *	bd_queue;

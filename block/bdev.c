@@ -862,9 +862,9 @@ struct block_device *blkdev_get_by_dev(dev_t dev, fmode_t mode, void *holder,
 		 * writeable reference is too fragile given the way @mode is
 		 * used in blkdev_get/put().
 		 */
-		if ((mode & FMODE_WRITE) && !bdev->bd_write_holder &&
+		if ((mode & FMODE_WRITE) && !bdev_test_flag(bdev, BD_WRITE_HOLDER) &&
 		    (disk->event_flags & DISK_EVENT_FLAG_BLOCK_ON_EXCL_WRITE)) {
-			bdev->bd_write_holder = true;
+			bdev_set_flag(bdev, BD_WRITE_HOLDER);
 			unblock_events = false;
 		}
 	}
@@ -964,9 +964,9 @@ void blkdev_put(struct block_device *bdev, fmode_t mode)
 		 * If this was the last claim, remove holder link and
 		 * unblock evpoll if it was a write holder.
 		 */
-		if (bdev_free && bdev->bd_write_holder) {
+		if (bdev_free && bdev_test_flag(bdev, BD_WRITE_HOLDER)) {
 			disk_unblock_events(disk);
-			bdev->bd_write_holder = false;
+			bdev_clear_flag(bdev, BD_WRITE_HOLDER);
 		}
 	}
 
