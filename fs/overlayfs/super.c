@@ -1788,7 +1788,7 @@ static int ovl_get_layers(struct super_block *sb, struct ovl_fs *ofs,
 	 */
 	if (ofs->numfs - !ovl_upper_mnt(ofs) == 1) {
 		if (ofs->config.xino == OVL_XINO_ON)
-			pr_info("\"xino=on\" is useless with all layers on same fs, ignore.\n");
+			pr_debug("\"xino=on\" is useless with all layers on same fs, ignore.\n");
 		ofs->xino_mode = 0;
 	} else if (ofs->config.xino == OVL_XINO_OFF) {
 		ofs->xino_mode = -1;
@@ -1805,7 +1805,7 @@ static int ovl_get_layers(struct super_block *sb, struct ovl_fs *ofs,
 	}
 
 	if (ofs->xino_mode > 0) {
-		pr_info("\"xino\" feature enabled using %d upper inode bits.\n",
+		pr_debug("\"xino\" feature enabled using %d upper inode bits.\n",
 			ofs->xino_mode);
 	}
 
