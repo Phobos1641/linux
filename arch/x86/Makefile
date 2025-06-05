@@ -153,14 +153,20 @@ else
         cflags-$(CONFIG_MK8)		+= -march=k8
         cflags-$(CONFIG_MPSC)		+= -march=nocona
         cflags-$(CONFIG_MCORE2)		+= -march=core2
+        cflags-$(CONFIG_MNEHALEM)	+= -march=nehalem
+        cflags-$(CONFIG_MSANDYBRIDGE)	+= -march=sandybridge
         cflags-$(CONFIG_MATOM)		+= -march=atom
+        cflags-$(CONFIG_NATIVE_CPU)	+= -march=native
         cflags-$(CONFIG_GENERIC_CPU)	+= -mtune=generic
         KBUILD_CFLAGS += $(cflags-y)
 
         rustflags-$(CONFIG_MK8)		+= -Ctarget-cpu=k8
         rustflags-$(CONFIG_MPSC)	+= -Ctarget-cpu=nocona
         rustflags-$(CONFIG_MCORE2)	+= -Ctarget-cpu=core2
+        rustflags-$(CONFIG_MNEHALEM)	+= -Ctarget-cpu=nehalem
+        rustflags-$(CONFIG_MSANDYBRIDGE)	+= -Ctarget-cpu=sandybridge
         rustflags-$(CONFIG_MATOM)	+= -Ctarget-cpu=atom
+        rustflags-$(CONFIG_NATIVE_CPU)	+= -Ctarget-cpu=native
         rustflags-$(CONFIG_GENERIC_CPU)	+= -Ztune-cpu=generic
         KBUILD_RUSTFLAGS += $(rustflags-y)
 
