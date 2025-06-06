@@ -1455,6 +1455,14 @@ config CC_OPTIMIZE_FOR_SIZE
 
 endchoice
 
+config CC_SWING_MODULU_SCHEDULING
+	bool "Perform swing modulo scheduling"
+	depends on EXPERT
+	default n
+	help
+	  Enables the -fmodulo-sched -fmodulo-sched-allow-regmoves -fivopts
+	  compiler compiler options.
+
 config HAVE_LD_DEAD_CODE_DATA_ELIMINATION
 	bool
 	help
