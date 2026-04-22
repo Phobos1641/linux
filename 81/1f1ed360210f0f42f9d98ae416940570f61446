@@ -1,0 +1,19 @@
+-----BEGIN PGP SIGNATURE-----
+Comment: This signature is for the .tar version of the archive
+Comment: git archive --format tar --prefix=linux-6.12.83/ v6.12.83
+Comment: git version 2.54.0
+
+iQIzBAABCgAdFiEEZH8oZUiU471FcZm+ONu9yGCSaT4FAmnor2AACgkQONu9yGCS
+aT5myg//W1JBLstimihph83zzP1z2T/+u4lffko77EtVXVNiZfh2pdo6nbsFluQQ
+RbnWAt5mZay+VL+iYxg6LxdlBJyWYqr5II2vxtpKctzMmy1UiXsxlMGKtPQGvJzv
+yF4zSkNkm907F6fX9i1m/TD6JS0YB9cFBRzv1cVBmJZ9ON6wwyJ07E5GWgYr6XM1
+SJO87E5R2tITOJf0yZG2YI/w544wrKBEAPguJC5b1KZrF9qe/z/Xzq3C3DRTJGbZ
+nzQW5J82x3pTpQJCUS9rStTYTDMA43fe2kCzfc8U3z2VqHsu+rx9dyozvggBC2dR
+I0/+RGicwDK8TErY8fcEoDBmT460ojT97HtsbFixJngjDCoQgza97a9MfvLE09XU
+nQFY++hP3+E96aD0avRZFRUFIcGpvdGjGW6CMCDF1mMUUDVfJTCComRjEeIq+v/j
+rgAJsemnHwuZtIqWzSKiekshGjUwYmLpkt8h8emJ9DqkAK2Lk7wEjYdBEdu4rRDd
+5kaHmJSzhkf2VgqOYls1Wcijzf5EiQN/C5Lj4AW+iVgM+0XhXIBh2cmWHD/b3cfe
+vmo2T/pK9qKx7CMKAHRFfRyPFjb2I0v/TjFE1EpbHpV+Vfnqb5iivKgBDxRp9xnn
+GHDjiJExTVRExpRkNQP1MxZ4Y5yoF35ehNGh4hADedapQbXRErY=
+=4IP3
+-----END PGP SIGNATURE-----
